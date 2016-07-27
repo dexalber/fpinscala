@@ -51,9 +51,12 @@ object Tree {
     case Branch(l, r) ⇒ fold(l, fold(r, z)(f))(f)
   }
 
-def size2[A](t: Tree[A]): Int =  ???
-def maximum2(t: Tree[Int]): Tree[Int] = ???
-def depth2[A](t: Tree[A]): Int = ???
-def map2[A, B](t: Tree[A])(f: A ⇒ B): Tree[B] = ???
+  def size2[A](t: Tree[A]): Int =  fold(t, 0)((acc, x) ⇒ acc + 1)
+  def maximum2(t: Tree[Int]): Tree[Int] = fold(t, Tree[Int]()){
+    case (Empty, x) ⇒ Leaf(x)
+    case (Leaf(a), b) ⇒ Leaf(a max b)
+  }
+  def depth2[A](t: Tree[A]): Int = ???
+  def map2[A, B](t: Tree[A])(f: A ⇒ B): Tree[B] = ???
 }
 
