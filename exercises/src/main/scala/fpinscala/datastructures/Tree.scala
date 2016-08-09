@@ -56,6 +56,7 @@ object Tree {
     case (Empty, x) ⇒ Leaf(x)
     case (Leaf(a), b) ⇒ Leaf(a max b)
   }
+  def foo[T[_] <: Seq[_]](a: T[Int]) = 3
   def depth2[A](t: Tree[A]): Int = ???
   def map2[A, B](t: Tree[A])(f: A ⇒ B): Tree[B] = ???
 }
